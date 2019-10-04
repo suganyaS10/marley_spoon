@@ -1,0 +1,40 @@
+
+<div class="container">
+  <% recipes = contentful.entries(content_type: 'recipe', 'sys.id': @recipe_sys_id) %>
+  <div class="row border">
+  <% recipe = recipes.items.first.fields %>
+
+  <% if recipe[:chef].present? %>
+  <% chef = contentful.entries(content_type: 'chef', 'sys.id': recipe[:chef].id).items.first.fields[:name] %>
+  <% end %>
+
+  <% if recipe[:tags].present? %>
+  <% tag_names = [] %>
+  <% recipe[:tags].each do |tag| %>
+    <% tag_names << contentful.entries(content_type: 'tag', 'sys.id': tag.id).items.first.fields[:name] %>
+  <% end %>
+  <% end %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="<%= recipe[:photo].url %>" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                      <p><b> <%= recipe[:title] %></b></p>
+                      <p><%= recipe[:description] %></p>
+                      <p><b>Tags:</b> <%= tag_names %></p>
+                      <p><b>Chef: </b> <%= chef %></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="container">
+  <% recipes = contentful.entries(content_type: 'recipe', include: 2) %>
+
+  <% recipes.items.each do |product| %>
+  <div class="card">
+      <img class="card-img-top img-thumbnail" src="<%= product.fields[:photo].url %>" alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title"><%= product.fields[:title] %></h5>
+        <p class="card-text"><%= product.fields[:description] %>.</p>
+        <%= link_to 'View Recipe', show_recipe_recipes_path(id: product.id), class: "btn btn-primary" %>
+      </div>
+  </div>
+  <% end %>
+</div>
