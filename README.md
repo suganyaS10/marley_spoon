@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Application is Using Ruby Version 2.6.3 and Rails Version 5.2.3 with No Databse for now.
 
-Things you may want to cover:
+This Application consumes Contentful API to list recipes and show recipe details
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
